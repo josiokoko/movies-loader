@@ -1,4 +1,4 @@
-node('workers'){
+node('movies-loader'){
     stage('Checkout'){
         checkout scm
     }
