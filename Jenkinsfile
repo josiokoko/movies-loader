@@ -1,4 +1,4 @@
-node('movies-loader'){
+node('movies'){
     stage('Checkout'){
         echo "checkout scm"
     }
