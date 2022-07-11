@@ -2,17 +2,20 @@ pipeline {
   agent any
  
   environment {
-		DOCKERHUB_CREDENTIALS=credentials('josiokoko')
+	DOCKERHUB_CREDENTIALS=credentials('docker-josiokoko')
         imageName = 'josiokoko/movies-loader'
-	}
+    }
     
-    stages{
+    stages {
+	    
         stage('Checkout'){
             checkout scm
         }
+	    
         stage('Unit Tests'){
             sh "docker build -t ${imageName}-test -f Dockerfile.test ."
             sh "docker run --rm ${imageName}-test"
         }
+	    
     }
 }
