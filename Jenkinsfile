@@ -9,12 +9,16 @@ pipeline {
     stages {
 	    
         stage('Checkout'){
-            checkout scm
+		steps{
+			checkout scm
+		}
         }
 	    
         stage('Unit Tests'){
-            sh "docker build -t ${imageName}-test -f Dockerfile.test ."
-            sh "docker run --rm ${imageName}-test"
+		steps{
+			sh "docker build -t ${imageName}-test -f Dockerfile.test ."
+            		sh "docker run --rm ${imageName}-test"
+		}
         }
 	    
     }
