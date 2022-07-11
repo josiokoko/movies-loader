@@ -5,7 +5,7 @@ node('movies'){
         checkout scm
     }
     stage('Unit Tests'){
-        sh "docker build -t ${imageName}-test -f Dockerfile.test ."
-        sh "docker run --rm ${imageName}-test"
+        sh "docker:dind build -t ${imageName}-test -f Dockerfile.test ."
+        sh "docker:dind run --rm ${imageName}-test"
     }
 }
