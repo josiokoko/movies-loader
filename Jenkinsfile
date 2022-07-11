@@ -2,7 +2,7 @@ def imageName = 'josiokoko/movies-loader'
 
 node('movies'){
     stage('Checkout'){
-        echo "checkout scm"
+        checkout scm
     }
     stage('Unit Tests'){
         sh "docker build -t ${imageName}-test -f Dockerfile.test ."
