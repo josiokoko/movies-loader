@@ -7,4 +7,6 @@ RUN pip install unittest-xml-reporting
 COPY test_main.py .
 COPY movies.json .
 
+RUN chmod 755 *.xml
+
 CMD python test_main.py
