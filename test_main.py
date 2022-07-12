@@ -1,4 +1,9 @@
-import unittest
+# import unittest
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
+   
 import json
 import xmlrunner
 
