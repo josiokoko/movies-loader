@@ -21,6 +21,7 @@ pipeline {
 				imageTest.inside{
 					sh "python test_main.py"
 					sh "docker run --rm -u root -v $PWD/reports:/app/report ${imageName}-test"
+					sh "chown -R 755 reports/
 					junit "$PWD/reports/*.xml"
 				}
 				
