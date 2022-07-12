@@ -1,6 +1,6 @@
 pipeline {
   agent {
-	  dockerfile.test true
+	  dockerfile true
 	}
  
   environment {
