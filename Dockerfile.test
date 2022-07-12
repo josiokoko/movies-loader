@@ -7,4 +7,4 @@ RUN pip install unittest-xml-reporting
 COPY test_main.py .
 COPY movies.json .
 
-CMD ["python", "test_main.py"]
+CMD ["python3", "test_main.py"]
