@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+	  dockerfile.test true
+	}
  
   environment {
 	DOCKERHUB_CREDENTIALS=credentials('docker-josiokoko')
