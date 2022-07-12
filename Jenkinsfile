@@ -1,12 +1,25 @@
-node("movies"){
-  def customImage = docker.build("my-image:${env.BUILD_ID}")
-   stage('Checkout'){
-		
-			checkout scm
-	
+pipeline {
+  agent any
+ 
+  environment {
+	DOCKERHUB_CREDENTIALS=credentials('docker-josiokoko')
+        imageName = 'josiokoko/movies-loader'
     }
+    
+    stages {
 	    
-   stage('Unit Tests'){
-      customImage.push()
-   }
+        stage('Checkout'){
+		steps{
+			checkout scm
+		}
+        }
+	    
+        stage('Unit Tests'){
+		steps{
+			sh "docker build -t ${imageName}-test -f Dockerfile.test ."
+            		sh "docker run --rm ${imageName}-test"
+		}
+        }
+	    
+    }
 }
