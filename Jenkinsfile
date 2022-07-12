@@ -22,6 +22,15 @@ pipeline {
 		}
         }
 	
+	stage('Testing'){
+	     steps{
+		def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
+		imageTest.inside{
+			sh 'python test_main.py'
+		}
+	     }
+	}
+	
 
     }
 }
