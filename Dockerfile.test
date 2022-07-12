@@ -4,8 +4,6 @@ WORKDIR /app
 
 RUN pip install unittest-xml-reporting
 
-RUN yum install docker -y
-
 COPY test_main.py .
 COPY movies.json .
 
