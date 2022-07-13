@@ -28,7 +28,5 @@ if __name__ == '__main__':
     # runner = xmlrunner.XMLTestRunner(output='reports')
     # unittest.main(testRunner=runner)
     
-    with open('results.xml', 'wb') as output:
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output=output),
-            failfast=False, buffer=False, catchbreak=False)
+    with open('results.xml', 'w+') as output:
+        unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output),failfast=False, buffer=False, catchbreak=False)
