@@ -19,7 +19,7 @@ pipeline {
 			script {
 				def imageTest = docker.build("${imageName}-test", "-f Dockerfile.test .")
 				
-				sh "docker run --rm -v $PWD/reports:/app/report ${imageName}-test"
+				sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
 				junit "$PWD/reports/*.xml"
 			}
 		}
