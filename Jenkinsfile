@@ -17,12 +17,9 @@ pipeline {
         stage('Unit Tests'){
 		steps{
 			script {
-				def imageTest = docker.build("${imageName}-test", "-f Dockerfile.test .")
-				imageTest.inside{
-					sh 'python test_main.py'
-				}
-				sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
-				junit "$PWD/reports/*.xml"
+				
+				sh 'pip install unittest-xml-reporting'
+                    		sh 'python test_main.py'
 			}
 		}
         }
