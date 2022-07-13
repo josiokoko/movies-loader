@@ -5,9 +5,7 @@ WORKDIR /app
 FROM python:3.7.2
 RUN pip install unittest-xml-reporting
 RUN pip install xmlrunner
-RUN mkdir -R app/reports/results.xml
-RUN chown 777 reports/results.xml
-RUN
+
 COPY test_main.py .
 COPY movies.json .
 
