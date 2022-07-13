@@ -17,7 +17,10 @@ pipeline {
         stage('Unit Tests'){
 		steps{
 			script {
-                    		sh 'python3 test_main.py'
+                    		def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
+				imageTest.inside{
+				    sh "python test_main.py"
+				}
 			}
 		}
         }
