@@ -15,6 +15,11 @@ pipeline {
         }
 	    
         stage('Unit Tests'){
+		agent{
+			docker { 
+			    image 'python:3.7.3'
+			}
+    		}
 		steps{
 			script {
 				sh 'pip install unittest-xml-reporting'
