@@ -21,6 +21,7 @@ pipeline {
 				imageTest.inside{
 				    sh "python test_main.py"
 				}
+				sh "docker run --rm ${imageName}-test"
 			}
 		}
         }
