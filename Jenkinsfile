@@ -22,7 +22,7 @@ pipeline {
     		}
 		steps{
 			script {
-				sh 'pip install unittest-xml-reporting'
+				sh 'pip install --user unittest-xml-reporting'
                     		sh 'python3 test_main.py'
 			}
 		}
