@@ -17,7 +17,6 @@ pipeline {
         stage('Unit Tests'){
 		steps{
 			script {
-				
 				sh 'pip install unittest-xml-reporting'
                     		sh 'python test_main.py'
 			}
