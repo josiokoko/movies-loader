@@ -2,7 +2,7 @@ pipeline {
   agent any
  
   environment {
-	DOCKERHUB_CREDENTIALS=credentials('docker-josiokoko')
+	DOCKERHUB_CREDENTIALS=credentials('DockerHub-josiokoko')
         imageName = 'josiokoko/movies-loader'
     }
     
