@@ -22,7 +22,7 @@ pipeline {
 				    sh "python test_main.py"
 				}
 				// sh "docker run --rm ${imageName}-test"
-				sh "docker run --rm -v $pwd/reports:/app/reports ${imageName}-test" junit "$pwd/reports/*.xml"
+				sh "docker run --rm -v %cd%/reports:/app/reports ${imageName}-test" junit "%cd%/reports/*.xml"
 			}
 		}
         }
